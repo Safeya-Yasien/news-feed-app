@@ -12,10 +12,7 @@ export function useNews(defaultQuery: string) {
     try {
       setLoading(true);
       setError("");
-      const articlesData = await fetchNewsApi(
-        searchTerm,
-        import.meta.env.VITE_NEWS_API_KEY
-      );
+      const articlesData = await fetchNewsApi(searchTerm);
       setArticles(articlesData);
     } catch (err: any) {
       setError(err.message || "Error fetching news");
